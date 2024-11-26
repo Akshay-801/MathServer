@@ -1,5 +1,5 @@
 # Ex.05 Design a Website for Server Side Processing
-## Date:
+## Date: 26-11-2024
 
 ## AIM:
  To design a website to calculate the power of a lamp filament in an incandescent bulb in the server side. 
@@ -33,12 +33,86 @@ Publish the website in the given URL.
 
 ## PROGRAM :
 
+html
+```
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Power</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Power Calculator</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="inputline">
+                Resistance : <input type="text" name="Resistance" placeholder="Enter Resistance(in ohms)" value="{{R}}"></input></br>
+            </div>
+            <div class="inputline">
+                Resistance : <input type="text" name="Intensity" placeholder="Enter Intensity" value="{{I}}"></input></br>
+            </div>
+            <div>
+                <div class="inputline">
+                    <input type="submit" value="Calculate"></input></br>
+                </div>
+            </div>
+            <div class="inputline">
+                Power : <input type="text" name="Power" placeholder="Power calculated" value="{{power}}"></input></br>
+
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
+
+```
+style.css
+
+```
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: cursive;
+    background: linear-gradient(to left ,rgba(170, 218, 221, 255),rgba(146, 237, 149, 255));
+    background-size: cover;
+} 
+h1{
+    margin-bottom: 30px;
+    text-align: center;
+}
+.container{
+    background-color:rgba(255, 255, 255, 0.518);
+    padding: 50px;
+    width: 35%;
+    margin-top: 175px;
+}
+.inputline{
+    display: flex;
+    height: 40px;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+```
+
 
 ## SERVER SIDE PROCESSING:
 
+![alt text](<Screenshot (54).png>)
 
 ## HOMEPAGE:
 
+![alt text](<Screenshot (53)-1.png>)
 
 ## RESULT:
 The program for performing server side processing is completed successfully.
