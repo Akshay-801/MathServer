@@ -105,6 +105,42 @@ h1{
 
 ```
 
+views.py
+
+```
+from django.shortcuts import render 
+def power(request): 
+    context={} 
+    context['power'] = "0" 
+    context['R'] = "0" 
+    context['I'] = "0" 
+    if request.method == 'POST': 
+        print("POST method is used")
+        R = request.POST.get('Resistance','0')
+        I = request.POST.get('Intensity','0')
+        print('request=',request) 
+        print('Resistance=',R) 
+        print('Intensity=',I) 
+        power = int(R) * int(I) 
+        context['power'] = power
+        context['R'] = R
+        context['I'] = I
+        print('Power=',power) 
+    return render(request,'mathapp/index.html',context)
+
+```
+urls.py
+
+```
+from django.contrib import admin 
+from django.urls import path 
+from myapp import views 
+urlpatterns = [ 
+    path('admin/', admin.site.urls), 
+    path('power/',views.power,name="calculatepower"),
+    path('',views.power,name="calculatepower")
+]
+```
 
 ## SERVER SIDE PROCESSING:
 
